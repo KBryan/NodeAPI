@@ -1,5 +1,5 @@
 var db = require('../config/db');
-var DefinitionSchema = require('./definition-schema');
+var DefinitionSchema = require('./definitions-schema');
 
 var Definition = db.model('Definition', DefinitionSchema);
 

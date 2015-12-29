@@ -2,7 +2,7 @@ var router = require('express').Router();
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var constants = require('../config/constants');
-var User = require('../models.user');
+var User = require('../models/user');
 
 router.post('/', (req,res) => {
   User.findOne({ username:req.body.user.username}).then(
@@ -11,7 +11,7 @@ router.post('/', (req,res) => {
       if (user) {
         bcrypt.compare(req.body.user.pwd, user.passhash,(err,matches) => {
           if (matches) {
-             var sessionToken = jwt.sign(user._id,constants.JWT_SECRET,{ 60*60 });
+             var sessionToken = jwt.sign(user._id,constants.JWT_SECRET, { expiresIn: 60 * 60 });
              res.json({
                user:user,
                message:'successfully authed',
@@ -33,7 +33,9 @@ router.post('/', (req,res) => {
         });
       }
     }, (err) => {
-
+        res.json(err);
     }
   )
 })
+
+module.exports = router;

@@ -9,6 +9,7 @@
   "author": "KBryan",
   "license": "MIT",
   "dependencies": {
+    "mongoose": ">=5.7.5"
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",

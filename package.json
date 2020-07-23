@@ -13,6 +13,6 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.5.0",
-    "mongoose": "^4.3.4"
+    "mongoose": "^5.9.25"
   }
 }
